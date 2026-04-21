@@ -114,4 +114,4 @@ Este projeto foi desenvolvido como parte da evolução prática em QA Automation
 
 ## 📬 Contato
 
-LinkedIn: [https://www.linkedin.com/in/seu-link-aqui](https://www.linkedin.com/in/julio-cesar-nb/)
+LinkedIn: [https://www.linkedin.com/in/Julio-Cesar](https://www.linkedin.com/in/julio-cesar-nb/)
