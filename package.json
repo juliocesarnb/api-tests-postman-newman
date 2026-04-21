@@ -1,0 +1,11 @@
+{
+  "name": "api-tests-postman",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "newman run collection.json -r cli,htmlextra --reporter-htmlextra-export report.html"
+  },
+  "devDependencies": {
+    "newman": "^6.1.0",
+    "newman-reporter-htmlextra": "^1.23.0"
+  }
+}

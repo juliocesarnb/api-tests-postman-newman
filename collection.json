@@ -1,0 +1,168 @@
+{
+  "info": {
+    "name": "Petstore API - Professional Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "CREATE Pet",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const randomId = Math.floor(Math.random() * 100000);",
+              "pm.environment.set('petId', randomId);"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.response.to.have.status(200);",
+              "const res = pm.response.json();",
+              "pm.expect(res.id).to.eql(pm.environment.get('petId'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"id\": {{petId}}, \"name\": \"dog-test\", \"status\": \"available\" }"
+        },
+        "url": "https://petstore.swagger.io/v2/pet"
+      }
+    },
+
+    {
+      "name": "GET Created Pet",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.response.to.have.status(200);",
+              "const res = pm.response.json();",
+              "pm.expect(res.name).to.eql('dog-test');"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "https://petstore.swagger.io/v2/pet/{{petId}}"
+      }
+    },
+
+    {
+      "name": "UPDATE Pet",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.response.to.have.status(200);",
+              "const res = pm.response.json();",
+              "pm.expect(res.name).to.eql('dog-updated');"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"id\": {{petId}}, \"name\": \"dog-updated\", \"status\": \"sold\" }"
+        },
+        "url": "https://petstore.swagger.io/v2/pet"
+      }
+    },
+
+    {
+      "name": "VALIDATE Update",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.response.to.have.status(200);",
+              "const res = pm.response.json();",
+              "pm.expect(res.status).to.eql('sold');"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "https://petstore.swagger.io/v2/pet/{{petId}}"
+      }
+    },
+
+    {
+      "name": "NEGATIVE - Pet Not Found",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.response.to.have.status(404);",
+              "const res = pm.response.json();",
+              "pm.expect(res.message).to.include('not found');"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "https://petstore.swagger.io/v2/pet/999999999"
+      }
+    },
+
+    {
+      "name": "DELETE Pet",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.response.to.have.status(200);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "url": "https://petstore.swagger.io/v2/pet/{{petId}}"
+      }
+    },
+
+    {
+      "name": "VALIDATE Delete",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.response.to.have.status(404);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "https://petstore.swagger.io/v2/pet/{{petId}}"
+      }
+    }
+
+  ]
+}
