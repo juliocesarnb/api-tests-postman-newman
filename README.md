@@ -110,7 +110,7 @@ Este projeto foi desenvolvido como parte da evolução prática em QA Automation
 
 ## 👨‍💻 Autor
 
-### Júlio César
+### Júlio Cesar
 
 ## 📬 Contato
 
