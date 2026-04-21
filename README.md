@@ -57,4 +57,4 @@ O pipeline é executado automaticamente a cada push na branch main.
 Demonstrar conhecimento em testes de API com integração contínua, simulando ambiente real de QA em empresas.
 
 ## 👨‍💻 Autor
-### Júlio César
+### Júlio Cesar
