@@ -124,7 +124,7 @@
       ],
       "request": {
         "method": "GET",
-        "url": "https://petstore.swagger.io/v2/pet/999999999"
+        "url": "https://petstore.swagger.io/v2/pet/-1"
       }
     },
 

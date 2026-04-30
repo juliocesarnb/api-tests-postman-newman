@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Petstore API - Professional Tests" tests="7" time="0.919">
+  <testsuite name="CREATE Pet" id="727c7537-20a0-4795-8d88-0a5aa3496820" timestamp="2026-04-28T21:28:17.884Z" tests="0" failures="0" errors="0" time="0.384"/>
+  <testsuite name="GET Created Pet" id="fc725d0c-3ea6-449f-bb5a-ae53bde33d6d" timestamp="2026-04-28T21:28:17.884Z" tests="0" failures="0" errors="0" time="0.094"/>
+  <testsuite name="UPDATE Pet" id="955f4081-7fb1-4928-8a3d-7b5d0fea438f" timestamp="2026-04-28T21:28:17.884Z" tests="0" failures="0" errors="0" time="0.088"/>
+  <testsuite name="VALIDATE Update" id="58b04a36-42a0-443a-9a2a-828eb72ed602" timestamp="2026-04-28T21:28:17.884Z" tests="0" failures="0" errors="0" time="0.089"/>
+  <testsuite name="NEGATIVE - Pet Not Found" id="2b10b509-5426-450a-b571-2b73639bd936" timestamp="2026-04-28T21:28:17.884Z" tests="0" failures="0" errors="0" time="0.089"/>
+  <testsuite name="DELETE Pet" id="4f0fe5df-5eb3-4fff-8cf9-43193f903e86" timestamp="2026-04-28T21:28:17.884Z" tests="0" failures="0" errors="0" time="0.087"/>
+  <testsuite name="VALIDATE Delete" id="9ab58aae-3c40-450d-bd40-59a8faeed39a" timestamp="2026-04-28T21:28:17.884Z" tests="0" failures="0" errors="0" time="0.088"/>
+</testsuites>

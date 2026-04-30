@@ -1,32 +1,44 @@
-name: API Tests - Newman
+name: API Tests CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   api-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
-      - name: Checkout do código
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
-      - name: Instalar dependências
-        run: npm install
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Rodar testes com Newman
-        run: npm test
+      - name: Run API tests with Newman
+        env:
+          HTTP_PROXY: ""
+          HTTPS_PROXY: ""
+          ALL_PROXY: ""
+        run: npm run test:ci
 
-      - name: Upload do relatório HTML
-        uses: actions/upload-artifact@v4
+      - name: Upload Newman reports
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: newman-report
-          path: report.html
+          name: newman-report-${{ github.run_number }}
+          path: |
+            report.html
+            newman-results.xml
+          if-no-files-found: warn
+          retention-days: 7

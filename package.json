@@ -2,7 +2,8 @@
   "name": "api-tests-postman",
   "version": "1.0.0",
   "scripts": {
-    "test": "newman run collection.json -r cli,htmlextra --reporter-htmlextra-export report.html"
+    "test": "newman run collection.json -r cli,htmlextra --reporter-htmlextra-export report.html",
+    "test:ci": "newman run collection.json -r cli,htmlextra,junit --reporter-htmlextra-export report.html --reporter-junit-export newman-results.xml"
   },
   "devDependencies": {
     "newman": "^6.1.0",
